@@ -25,7 +25,27 @@ function criarCobrinha(){
     }
 }
 
+document.addEventListener('keydown', update);
+
+function update(event){
+    if(event.keyCode == 37 && direction != "right") direction = "left";
+    if(event.keyCode == 38 && direction != "down") direction = "up";
+    if(event.keyCode == 39 && direction != "left") direction = "right";
+    if(event.keyCode == 40 && direction != "up") direction = "down";
+
+}
+
+
+
 function iniciaJogo(){
+  if(snack[0].x > 15 * box  && direction == "right") snack[0].x = 0;
+  if(snack[0].x < 0  && direction == "left") snack[0].x = 16* box ;
+  if(snack[0].y > 15 * box  && direction == "down") snack[0].y = 0;
+  if(snack[0].x  < 0  && direction == "up") snack[0].y = 16 * box;
+  
+ 
+
+
     criarBG();
     criarCobrinha();
 
@@ -35,8 +55,8 @@ function iniciaJogo(){
 
     if(direction == "right") snack_X += box;
     if(direction == "left")  snack_X  -= box;
-    if(direction == "up")  snack_Y -= box;
-    if(direction == "down") snack_Y  += box;
+    if(direction == "up")    snack_Y -= box;
+    if(direction == "down")  snack_Y  += box;
 
     snack.pop();
 
@@ -50,8 +70,6 @@ function iniciaJogo(){
 }
 
 
-let jogo = setInterval(() => {
-    iniciaJogo();
-}, 100);
+let jogo = setInterval(iniciaJogo, 100)
 
 
