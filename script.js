@@ -11,6 +11,13 @@ snack[0] = {
 }
 
 let direction = "right"
+let food = {
+    x: Math.floor(Math.random() * 15+1) * box,
+    y: Math.floor(Math.random() * 15+1) * box,
+}
+
+/********************************/
+
 
 function criarBG(){
     context.fillStyle = 'lightgreen';
@@ -24,6 +31,15 @@ function criarCobrinha(){
         
     }
 }
+
+function drawFood(){
+  context.fillStyle = "red";
+  context.fillRect(food.x, food.y, box, box);
+}
+
+
+
+
 
 document.addEventListener('keydown', update);
 
@@ -48,7 +64,7 @@ function iniciaJogo(){
 
     criarBG();
     criarCobrinha();
-
+    drawFood();
 
     let snack_X = snack[0].x;
     let snack_Y = snack[0].y;
@@ -57,6 +73,15 @@ function iniciaJogo(){
     if(direction == "left")  snack_X  -= box;
     if(direction == "up")    snack_Y -= box;
     if(direction == "down")  snack_Y  += box;
+
+if(snack_X != food.x || snack_Y != food.y){
+  //remova
+  snack.pop();
+}else{
+    food.x =  Math.floor(Math.random() * 15+1) * box;
+    food.y =  Math.floor(Math.random() * 15+1) * box;
+}
+
 
     snack.pop();
 
