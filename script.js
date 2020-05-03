@@ -39,9 +39,9 @@ function update(event){
 
 function iniciaJogo(){
   if(snack[0].x > 15 * box  && direction == "right") snack[0].x = 0;
-  if(snack[0].x < 0  && direction == "left") snack[0].x = 16* box ;
+  if(snack[0].x < 0  && direction == "left") snack[0].x = 16 * box ;
   if(snack[0].y > 15 * box  && direction == "down") snack[0].y = 0;
-  if(snack[0].x  < 0  && direction == "up") snack[0].y = 16 * box;
+  if(snack[0].y  < 0  && direction == "up") snack[0].y = 16 * box;
   
  
 
