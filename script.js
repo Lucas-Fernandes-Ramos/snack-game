@@ -59,6 +59,12 @@ function iniciaJogo(){
   if(snack[0].y > 15 * box  && direction == "down") snack[0].y = 0;
   if(snack[0].y  < 0  && direction == "up") snack[0].y = 16 * box;
   
+  for(i=1; i < snack.length; i++){
+    if(snack[0].x == snack[i].x && snack[0].y == snack[i].y){
+       clearInterval(jogo);
+       alert("fim de partida")
+    }
+}
  
 
 
@@ -74,6 +80,9 @@ function iniciaJogo(){
     if(direction == "up")    snack_Y -= box;
     if(direction == "down")  snack_Y  += box;
 
+
+
+
 if(snack_X != food.x || snack_Y != food.y){
   //remova
   snack.pop();
@@ -83,7 +92,6 @@ if(snack_X != food.x || snack_Y != food.y){
 }
 
 
-    snack.pop();
 
     let newHead = {
         x: snack_X,
