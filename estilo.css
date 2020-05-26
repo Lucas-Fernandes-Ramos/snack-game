@@ -1,0 +1,13 @@
+
+body{
+    background-color:  gray ; 
+    height: 95vh;
+    width: 95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: aliceblue;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
